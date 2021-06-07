@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 import Filter from "../components/Home/Filter";
 import MessageGroup from "../components/Home/MessageGroup";
@@ -17,7 +17,9 @@ export default class Home extends React.Component {
 			<View style={styles.Container}>
 				<Filter />
 				<MessageGroup title="Unread">
-					<Chat data={{status:"Busy", name: "Emre", avatar: {type:0,url:"https://www.w3schools.com/howto/img_avatar.png"}, count: 1, date:"19:31", lastMessage:"Git pushladın mı?", messageStatus:0}} />
+					<TouchableOpacity onPress={()=>{this.props.navigation.navigate("MessageP2P")}}>
+						<Chat data={{status:"Busy", name: "Emre", avatar: {type:0,url:"https://www.w3schools.com/howto/img_avatar.png"}, count: 1, date:"19:31", lastMessage:"Git pushladın mı?", messageStatus:0}} />
+					</TouchableOpacity>
 					<Chat data={{status:"Online", name: "Elif", avatar: {type:0,url:"https://www.w3schools.com/howto/img_avatar2.png"}, count: 1, date:"18:09", lastMessage:"Pull requestlerini inceler misin?", messageStatus: 0}} />
 				</MessageGroup>
 				<MessageGroup title="Favourites">

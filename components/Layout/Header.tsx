@@ -14,7 +14,7 @@ export default class Header extends React.Component {
 		return(
 			<View style={styles.HeaderContainer}>
 				<View style={styles.HeaderContent}>
-					<TouchableOpacity><Ionicons name="ios-settings-outline" size={20} color="#06c" /></TouchableOpacity>
+					<TouchableOpacity onPress={()=>{(this.props.backButton ? this.props.navigation.goBack() : null )}}>{this.props.backButton ? <Ionicons name="ios-chevron-back" size={20} color="#06c" /> : <Ionicons name="ios-settings-outline" size={20} color="#06c" />}</TouchableOpacity>
 					<View style={styles.Center}>
 						<Text style={styles.Title}>Messages</Text>
 						<Text style={styles.Group}>EA Engineering <Ionicons name="ios-chevron-down-outline" size={12} color="#06c" /></Text>

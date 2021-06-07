@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Header from "../components/Layout/Header";
 import Home from '../screens/Home';
+import MessageP2P from '../screens/MessageP2P';
 import { RootStackParamList } from '../types';
 
 /*
@@ -34,7 +35,16 @@ function RootNavigator() {
           header: ({ scene, previous, navigation }) => {
             return ( <Header navigation={navigation} scene={scene} backButton={previous ? true : false} /> );
           }
-        }} />
+        }}
+      />
+      <Stack.Screen
+        name="MessageP2P"
+        component={MessageP2P}
+        options={{
+          title: "MessageP2P",
+          headerShown: false
+        }}
+      />
     </Stack.Navigator>
   );
 }
