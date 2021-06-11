@@ -1,12 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import Header from "../components/Layout/Header";
-import Home from '../screens/Home';
-import MessageP2P from '../screens/MessageP2P';
-import { RootStackParamList } from '../types';
+
+import Home from "../screens/Home";
+import Settings from "../screens/Settings";
+import MessageP2P from "../screens/MessageP2P";
+
+import { RootStackParamList } from "../types";
 
 /*
 import LinkingConfiguration from './LinkingConfiguration';
@@ -30,12 +33,22 @@ function RootNavigator() {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{
+        options={({route})=>({
           title: "Home",
           header: ({ scene, previous, navigation }) => {
-            return ( <Header navigation={navigation} scene={scene} backButton={previous ? true : false} /> );
+            return ( <Header navigation={navigation} scene={scene} route={route} backButton={previous ? true : false} /> );
           }
-        }}
+        })}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={({route})=>({
+          title: "Settings",
+          header: ({ scene, previous, navigation }) => {
+            return ( <Header navigation={navigation} scene={scene} route={route} backButton={previous ? true : false} /> );
+          }
+        })}
       />
       <Stack.Screen
         name="MessageP2P"
